@@ -177,7 +177,7 @@ export default function App() {
             View My Work
           </motion.button>
 
-          <a href="/Denis_CV.pdf" download>
+          <a href="/denis-cv.pdf" download>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
