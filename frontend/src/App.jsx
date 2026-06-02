@@ -102,10 +102,13 @@ export default function App() {
 
   return (
     <>
-      {/* 🌌 MOVING SCIENTIFIC BACKGROUND */}
-      <ParticlesBackground />
+      {/* 🌌 MOVING SCIENTIFIC BACKGROUND (FIXED LAYERING) */}
+      <div style={{ position: "fixed", zIndex: 0, width: "100%" }}>
+        <ParticlesBackground />
+      </div>
 
       <div
+        style={{ position: "relative", zIndex: 10 }}
         className={
           darkMode
             ? "bg-gray-950 text-white min-h-screen transition-all duration-500"
@@ -200,10 +203,7 @@ export default function App() {
         </section>
 
         {/* SKILLS */}
-        <section
-          id="skills"
-          className="py-20 px-6 md:px-10 bg-gray-900"
-        >
+        <section id="skills" className="py-20 px-6 md:px-10 bg-gray-900">
           <h2 className="text-4xl font-bold mb-10 text-cyan-400">
             Skills
           </h2>

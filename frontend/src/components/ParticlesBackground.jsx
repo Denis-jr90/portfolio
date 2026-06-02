@@ -12,9 +12,9 @@ export default function ParticlesBackground() {
       id="tsparticles"
       init={particlesInit}
       options={{
-        fullScreen: {
-          enable: true,
-          zIndex: -1,
+       fullScreen: {
+  enable: true,
+  zIndex: 0,
         },
         particles: {
           number: {
