@@ -83,18 +83,35 @@ export default function App() {
     });
   };
 
-  // Submit form
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ // Submit form
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    alert("Message Sent Successfully!");
+  try {
+    const response = await fetch(
+      "https://portfolio-backend-8lg5.onrender.com/messages",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
 
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
-  };
+    console.log("STATUS:", response.status);
+
+    const data = await response.json();
+
+    console.log("DATA:", data);
+
+    alert("Done");
+
+  } catch (error) {
+    console.log("ERROR:", error);
+    alert(error.message);
+  }
+};
 
   return (
     <div
@@ -367,12 +384,12 @@ export default function App() {
             required
           ></textarea>
 
-          <button
-            type="submit"
-            className="bg-cyan-500 hover:bg-cyan-600 px-8 py-4 rounded-xl text-black font-bold transition"
-          >
-            Send Message
-          </button>
+         <button
+  type="submit"
+  className="bg-cyan-500 hover:bg-cyan-600 px-8 py-4 rounded-xl text-black font-bold transition"
+>
+  Send Message
+</button>
 
         </form>
 
