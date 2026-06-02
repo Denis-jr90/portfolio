@@ -87,13 +87,10 @@ export default function App() {
         }
       );
 
-      console.log("STATUS:", response.status);
-
       const data = await response.json();
-
       console.log("DATA:", data);
 
-      alert("Done");
+      alert("Message sent successfully!");
     } catch (error) {
       console.log("ERROR:", error);
       alert(error.message);
@@ -102,11 +99,12 @@ export default function App() {
 
   return (
     <>
-      {/* 🌌 MOVING SCIENTIFIC BACKGROUND (FIXED LAYERING) */}
-      <div style={{ position: "fixed", zIndex: 0, width: "100%" }}>
+      {/* 🌌 BACKGROUND (Particles Layer) */}
+      <div style={{ position: "fixed", top: 0, left: 0, width: "100%", zIndex: 0 }}>
         <ParticlesBackground />
       </div>
 
+      {/* UI LAYER */}
       <div
         style={{ position: "relative", zIndex: 10 }}
         className={
@@ -196,9 +194,7 @@ export default function App() {
           </h2>
 
           <p className="text-gray-300 leading-8 text-lg max-w-4xl">
-            I am passionate about cloud computing, web development, machine
-            learning, and data analysis. I enjoy building scalable modern
-            applications.
+            I am passionate about cloud computing, web development, machine learning, and data analysis.
           </p>
         </section>
 
@@ -288,7 +284,7 @@ export default function App() {
               onChange={handleChange}
               className="w-full p-4 rounded-xl bg-black border border-gray-700 text-white"
               required
-            ></textarea>
+            />
 
             <button
               type="submit"
